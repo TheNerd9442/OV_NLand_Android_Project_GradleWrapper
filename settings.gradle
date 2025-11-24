@@ -1,2 +1,0 @@
-include ':app'
-rootProject.name='OV_NLand_Android_App_With_Wrapper'
