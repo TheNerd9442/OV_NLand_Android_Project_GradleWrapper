@@ -1,2 +1,0 @@
-include ':app'
-rootProject.name='OV_NLand_Android_Project_GradleWrapper'
