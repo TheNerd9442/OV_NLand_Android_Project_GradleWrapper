@@ -13,29 +13,9 @@ android {
         versionName "1.0"
     }
 
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
-    }
-    signingConfigs {
-        release {
-            // Dummy values oder Keystore einfügen
-            storeFile file("keystore.jks")
-            storePassword "password"
-            keyAlias "alias"
-            keyPassword "password"
-        }
-    }
     buildTypes {
         release {
-            signingConfig signingConfigs.release
             minifyEnabled false
         }
     }
-}
-
-dependencies {
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'androidx.core:core-ktx:1.9.0'
 }
