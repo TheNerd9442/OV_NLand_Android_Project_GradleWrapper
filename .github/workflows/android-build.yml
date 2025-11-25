@@ -22,17 +22,19 @@ jobs:
           java-version: '17'
 
       # Android SDK installieren
+
       - name: Install Android SDK
         run: |
-          sudo apt-get update
-          sudo apt-get install -y wget unzip
-          wget https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip
-          mkdir -p $HOME/android-sdk/cmdline-tools
-          unzip commandlinetools-linux-9477386_latest.zip -d $HOME/android-sdk/cmdline-tools
-          export ANDROID_HOME=$HOME/android-sdk
-          export PATH=$ANDROID_HOME/cmdline-tools/bin:$ANDROID_HOME/platform-tools:$PATH
-          yes | $ANDROID_HOME/cmdline-tools/bin/sdkmanager --licenses
-          $ANDROID_HOME/cmdline-tools/bin/sdkmanager "platform-tools" "platforms;android-34" "build-tools;34.0.0"
+            sudo apt-get update
+            sudo apt-get install -y wget unzip
+            wget https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip
+            mkdir -p $HOME/android-sdk/cmdline-tools/latest
+            unzip commandlinetools-linux-9477386_latest.zip -d $HOME/android-sdk/cmdline-tools/latest
+            export ANDROID_HOME=$HOME/android-sdk
+            export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$PATH
+            yes | sdkmanager --licenses
+            sdkmanager "platform-tools" "platforms;android-34" "build-tools;34.0.0"
+
 
       - name: Make gradlew executable
         run: chmod +x gradlew
